@@ -1,5 +1,5 @@
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
   return (
@@ -7,7 +7,6 @@ export default function Navigation() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {/* <Nav.Link> */}
           <NavLink
             to="/"
             className="nav-link"
@@ -19,7 +18,6 @@ export default function Navigation() {
           >
             Homepage
           </NavLink>
-          {/* </Nav.Link> */}
           <NavLink
             to="/about"
             exact
@@ -29,7 +27,7 @@ export default function Navigation() {
             }}
             className="nav-link"
           >
-            About me
+            Random meme
           </NavLink>
         </Nav>
         <Form inline>

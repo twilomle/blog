@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Button, Card } from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom';
 
 import mockapi from '../api/mockapi';
 
@@ -13,6 +13,7 @@ export default function FullPostPage() {
   const [post, setPosts] = React.useState([]);
   const [comments, setComments] = React.useState([]);
   const { id } = useParams();
+  const history = useHistory();
 
   React.useEffect(() => {
     const fetchPosts = async () => {
@@ -32,6 +33,15 @@ export default function FullPostPage() {
 
   return (
     <>
+      <Button
+        variant="dark"
+        style={{ marginBottom: 20, marginTop: 20 }}
+        onClick={() => {
+          history.goBack();
+        }}
+      >
+        Go Back
+      </Button>
       <Card key={post.id}>
         <Card.Img variant="top" src={post.image} />
         <Card.Body>

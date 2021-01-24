@@ -9359,6 +9359,14 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
+reddit-image-fetcher@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/reddit-image-fetcher/-/reddit-image-fetcher-2.0.6.tgz#005e39625343c82ec76d07a84710ae1a31d654a4"
+  integrity sha512-UfS7Y7iapXPdW/F/2baXDmsSPr+6W6LF5eadG5WFVbandouNEhvWt2FGddn3wckK7R4JLWTeUBI00RIc7zSajA==
+  dependencies:
+    axios "^0.21.1"
+    shuffle-array "^1.0.1"
+
 redent@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f"
@@ -9997,6 +10005,11 @@ shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
+
+shuffle-array@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/shuffle-array/-/shuffle-array-1.0.1.tgz#c4ff3cfe74d16f93730592301b25e6577b12898b"
+  integrity sha1-xP88/nTRb5NzBZIwGyXmV3sSiYs=
 
 side-channel@^1.0.2, side-channel@^1.0.3:
   version "1.0.3"

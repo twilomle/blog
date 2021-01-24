@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardColumns } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 
 import mockapi from '../api/mockapi';
 
@@ -34,6 +35,22 @@ export default function HomePage() {
             </Card.Body>
             <Card.Footer className="text-muted">
               {formatDate(post.createdAt)}
+            </Card.Footer>
+          </Card>
+        ))}
+      {!posts[0] &&
+        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((el) => (
+          <Card key={el}>
+            <Skeleton height={200} width={'100%'} />
+            <Card.Body>
+              <Card.Title>
+                <Skeleton height={25} width={'100%'} />
+              </Card.Title>
+              <Skeleton height={50} width={'100%'} />
+              <Card.Text></Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-muted">
+              <Skeleton height={25} width={'100%'} />
             </Card.Footer>
           </Card>
         ))}
