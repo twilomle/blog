@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
+import { Store } from './store';
 import { Container } from 'react-bootstrap';
 import HomePage from './pages/HomePage';
 import Navigation from './components/Navigation';
@@ -16,20 +17,22 @@ function App() {
 
   return (
     <div className="App">
-      <Container>
-        {found ? null : <Navigation />}
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/post/:id">
-            <FullPostPage />
-          </Route>
-          <Route exact path="/about">
-            <AboutPage />
-          </Route>
-        </Switch>
-      </Container>
+      <Store>
+        <Container>
+          {found ? null : <Navigation />}
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/post/:id">
+              <FullPostPage />
+            </Route>
+            <Route exact path="/about">
+              <AboutPage />
+            </Route>
+          </Switch>
+        </Container>
+      </Store>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
 import mockapi from '../api/mockapi';
+import { Context } from '../store';
 
 export const formatDate = (date) => {
   const d = new Date(date);
@@ -11,16 +12,29 @@ export const formatDate = (date) => {
 };
 
 export default function HomePage() {
-  const [posts, setPosts] = React.useState([]);
+  const [globalPosts, setGlobalPosts] = React.useContext(Context);
+  const [posts, setPosts] = React.useState(globalPosts);
 
   React.useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await mockapi.get('/posts');
-      setPosts(response.data);
-    };
-    fetchPosts();
-  }, []);
-
+    if (globalPosts === null) {
+      console.log(globalPosts);
+      setPosts(null);
+      return;
+    }
+    if (!globalPosts[0]) {
+      const fetchPosts = async () => {
+        const response = await mockapi.get('/posts');
+        setPosts(response.data);
+      };
+      fetchPosts();
+    } else {
+      setPosts(globalPosts);
+    }
+  }, [globalPosts]);
+  if (posts === null)
+    return (
+      <div style={{ fontSize: '30px', paddingLeft: '10px' }}>Nothing found</div>
+    );
   return (
     <CardColumns className="mt-4">
       {posts &&
